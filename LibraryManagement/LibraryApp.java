@@ -6,7 +6,6 @@ public class LibraryApp {
             Member member = new Member("reader01", "pass123", "Temuulen", "temuulen@mail.com");
             Librarian librarian = new Librarian("lib01", "adminpass", "Tsetsgee", "Tov nomiin san");
 
-            // Зөв зээллэг
             BorrowRecord r1 = new BorrowRecord("2025-06-10", "Zeelsen", member, librarian, "Java programming 1");
             member.addBorrowRecord(r1);
             librarian.issueBook(r1);
@@ -20,7 +19,6 @@ public class LibraryApp {
                 System.out.println("- Nom: " + r.getBookTitle() + ", Ognoo: " + r.getDate() + ", Status: " + r.getStatus());
             }
 
-            // Алдаатай зээллэг (номын нэр хоосон)
             BorrowRecord r2 = new BorrowRecord("2025-06-11", "Zeelsen", member, librarian, " ");
             member.addBorrowRecord(r2);
 
