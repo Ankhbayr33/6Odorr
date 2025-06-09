@@ -3,9 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Member extends UserAccount {
-   private String fullName;
+    private String fullName;
     private String email;
     private List<BorrowRecord> borrowRecords;
+    private static final int MAX_BORROW_LIMIT = 5;
 
     public Member(String username, String password, String fullName, String email) {
         super(username, password);
@@ -28,6 +29,9 @@ public class Member extends UserAccount {
     }
 
     public void addBorrowRecord(BorrowRecord record) {
+        if (borrowRecords.size() >= MAX_BORROW_LIMIT) {
+            throw new IllegalStateException("Neg hereglegch 5aas iluu nom zeelj bolohgui!");
+        }
         borrowRecords.add(record);
     }
 
@@ -37,5 +41,5 @@ public class Member extends UserAccount {
 
     public String toString() {
         return "Gishuun: " + fullName + ", Email: " + email;
-    } 
+    }
 }

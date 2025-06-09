@@ -8,6 +8,12 @@ public class BorrowRecord {
     private String bookTitle;
 
     public BorrowRecord(String date, String status, Member member, Librarian librarian, String bookTitle) {
+        if (bookTitle == null || bookTitle.isBlank()) {
+            throw new IllegalArgumentException("Nomiin ner hooson baij bolohgui!");
+        }
+        if (!status.equals("Zeelsen") && !status.equals("Буцаасан")) {
+            throw new IllegalArgumentException("Status zovhon 'zeelsen' esvel 'butsaasan' baih ystoi.");
+        }
         this.date = date;
         this.status = status;
         this.member = member;
